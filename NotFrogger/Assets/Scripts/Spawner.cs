@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-	[SerializeField] GameObject[] m_spawnPoint;
+	[SerializeField] Transform m_initPoint;
+	[SerializeField] Transform m_rePoint;
 
-	int m_pointIndex = 0;
+	[SerializeField] GameObject m_playerRef;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+	public void ReMapPoint(Transform newPoint)
+	{
+		if (newPoint) m_rePoint = newPoint;
+	}
 }
