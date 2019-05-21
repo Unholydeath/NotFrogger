@@ -7,13 +7,6 @@ public class TempMovable : MonoBehaviour
 	[SerializeField] bool m_isPlayer = false;
 	[SerializeField] float m_speed = 1.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
 		Vector3 velocity = transform.position;
