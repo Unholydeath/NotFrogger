@@ -11,9 +11,12 @@ public class Spawner : MonoBehaviour
 
 	[SerializeField] GameObject m_playerRef;
 
+	bool m_block = false;
+
 	private void Start()
 	{
 		Interactable.OnCollision += Respawn;
+		Interactable.CollisionBlocker += Block;
 
 		++m_lives;
 		Respawn();
@@ -22,17 +25,27 @@ public class Spawner : MonoBehaviour
 	private void OnDestroy()
 	{
 		Interactable.OnCollision -= Respawn;
+		Interactable.CollisionBlocker -= Block;
+
 	}
 
 	void Respawn()
 	{
-		--m_lives;
-
-		if (m_lives >= 0)
+		if (!m_block)
 		{
-			m_playerRef.transform.position = m_rePoint.position;
-			m_playerRef.transform.rotation = m_rePoint.rotation;
+			--m_lives;
+
+			if (m_lives >= 0)
+			{
+				m_playerRef.transform.position = m_rePoint.position;
+				m_playerRef.transform.rotation = m_rePoint.rotation;
+			}
 		}
+	}
+
+	void Block(bool toggle)
+	{
+		m_block = toggle;
 	}
 
 	public void GainLife()
@@ -40,9 +53,9 @@ public class Spawner : MonoBehaviour
 		++m_lives;
 	}
 
-	public void GainLives()
+	public void GainLives(int amount)
 	{
-
+		if (amount > 0) m_lives += amount;
 	}
 
 	public void ReMapPoint(Transform newPoint)

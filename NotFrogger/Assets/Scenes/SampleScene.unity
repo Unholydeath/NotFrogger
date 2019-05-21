@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 349335443}
   - component: {fileID: 349335442}
   m_Layer: 0
-  m_Name: Death (1)
+  m_Name: Goal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hazardOrGoal: 1
+  m_IsHazard: 0
 --- !u!212 &349335444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 777386780}
   - component: {fileID: 777386782}
   - component: {fileID: 777386783}
+  - component: {fileID: 777386784}
   m_Layer: 0
   m_Name: New Sprite
   m_TagString: Player
@@ -461,6 +462,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!114 &777386784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777386779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89efafb541e12409acc896513c0886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isPlayer: 1
+  m_speed: 1
 --- !u!1 &1777698250
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_initPoint: {fileID: 218699001}
   m_rePoint: {fileID: 218699001}
+  m_lives: 1
   m_playerRef: {fileID: 777386779}
 --- !u!4 &1777698252
 Transform:
@@ -520,6 +536,7 @@ GameObject:
   - component: {fileID: 2125280983}
   - component: {fileID: 2125280982}
   - component: {fileID: 2125280985}
+  - component: {fileID: 2125280986}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -539,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hazardOrGoal: 0
+  m_IsHazard: 0
 --- !u!212 &2125280983
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -618,3 +635,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!114 &2125280986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125280981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b89efafb541e12409acc896513c0886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isPlayer: 0
+  m_speed: 1
