@@ -24,7 +24,6 @@ public class Interactable : MonoBehaviour
 			}
 		}
 	}
-
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
@@ -36,18 +35,38 @@ public class Interactable : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionExit(Collision collision)
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			if (OnCollision != null)
+			{
+				HandleAction(other.gameObject, true);
+			}
+		}
+	}
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
 			if (OnCollision != null)
 			{
-				HandleAction(collision.gameObject, false);
+				HandleAction(collision.gameObject, true);
 			}
 		}
 	}
 
-	private void OnCollisionExit2D(Collision2D collision)
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			if (OnCollision != null)
+			{
+				HandleAction(other.gameObject, false);
+			}
+		}
+	}
+	private void OnTriggerExit2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
