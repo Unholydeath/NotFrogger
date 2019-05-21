@@ -62,9 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Interactable.cs" />
-    <Compile Include="Assets\Scripts\Spawner.cs" />
-    <Compile Include="Assets\Scripts\TempMovable.cs" />
+    <Compile Include="Assets\Scripts\Testing.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Bryan Dorman/Documents/Neumont Work/11thQuater/PRO200 (Emering)/Project/NotFrogger/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
