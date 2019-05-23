@@ -9,17 +9,22 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField] Interactable[] m_goals;
 
-	float m_score = 0.0f;
-	float m_time = 0.0f;
+	static float m_score = 0.0f;
+	static float m_time = 0.0f;
 	float m_lap = 0.0f;
 
-	public float Score { get { return m_score; } }
-	public float Timer { get { return m_time; } }
+	static GameManager s_thisRef;
+
+	public static float Score { get { return m_score; } }
+	public static float Timer { get { return m_time; } }
+	public static bool ManagerExists { get { return s_thisRef != null; } }
 
 	void Start()
     {
 		Interactable.OnDeathCollision += DeathReaction;
 		Interactable.OnGoalCollision += GoalReaction;
+
+		s_thisRef = this;
 	}
 
 	private void OnDestroy()
