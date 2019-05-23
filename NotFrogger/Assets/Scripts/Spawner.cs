@@ -13,9 +13,13 @@ public class Spawner : MonoBehaviour
 
 	bool m_block = false;
 
+	public int Lives { get { return m_lives; } }
+	public int testing { get; set; }
+
 	private void Start()
 	{
-		Interactable.OnCollision += Respawn;
+		Interactable.OnDeathCollision += Death;
+		Interactable.OnGoalCollision += Respawn;
 		Interactable.CollisionBlocker += Block;
 
 		++m_lives;
@@ -24,23 +28,37 @@ public class Spawner : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		Interactable.OnCollision -= Respawn;
+		Interactable.OnDeathCollision -= Death;
+		Interactable.OnGoalCollision -= Respawn;
 		Interactable.CollisionBlocker -= Block;
-
 	}
 
-	void Respawn()
+	void Death()
 	{
 		if (!m_block)
 		{
 			--m_lives;
-
-			if (m_lives >= 0)
-			{
-				m_playerRef.transform.position = m_rePoint.position;
-				m_playerRef.transform.rotation = m_rePoint.rotation;
-			}
+			Respawn();
 		}
+	}
+
+	void Respawn()
+	{
+		if (m_lives >= 0)
+		{
+			m_playerRef.transform.position = m_rePoint.position;
+			m_playerRef.transform.rotation = m_rePoint.rotation;
+		}
+		else
+		{
+			GameOver();
+		}
+	}
+
+	void GameOver()
+	{
+		Time.timeScale = 0.0f;
+		Debug.Log("GG");
 	}
 
 	void Block(bool toggle)

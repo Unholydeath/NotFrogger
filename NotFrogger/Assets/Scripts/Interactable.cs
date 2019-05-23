@@ -7,18 +7,21 @@ public class Interactable : MonoBehaviour
 	enum eActionType { GOAL, HAZARD, SAFEZONE }
 
 	public delegate void CollisionAction();
-	public static CollisionAction OnCollision;
+	public static CollisionAction OnGoalCollision;
+	public static CollisionAction OnDeathCollision;
 
 	public delegate void CollisionToggle(bool toggle);
 	public static CollisionToggle CollisionBlocker;
 
 	[SerializeField] eActionType m_type;
 
+	private bool Subscribed { get { return OnGoalCollision != null && OnDeathCollision != null; } }
+
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			if(OnCollision != null)
+			if(Subscribed)
 			{
 				HandleAction(collision.gameObject, true);
 			}
@@ -28,28 +31,28 @@ public class Interactable : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			if (OnCollision != null)
+			if (Subscribed)
 			{
 				HandleAction(collision.gameObject, true);
 			}
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
+	private void OnTriggerStay(Collider other)
+	{	
 		if (other.gameObject.CompareTag("Player"))
 		{
-			if (OnCollision != null)
+			if (Subscribed)
 			{
 				HandleAction(other.gameObject, true);
 			}
 		}
 	}
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
+	private void OnTriggerStay2D(Collider2D collision)
+	{	
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			if (OnCollision != null)
+			if (Subscribed)
 			{
 				HandleAction(collision.gameObject, true);
 			}
@@ -60,7 +63,7 @@ public class Interactable : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-			if (OnCollision != null)
+			if (Subscribed)
 			{
 				HandleAction(other.gameObject, false);
 			}
@@ -70,7 +73,7 @@ public class Interactable : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			if (OnCollision != null)
+			if (Subscribed)
 			{
 				HandleAction(collision.gameObject, false);
 			}
@@ -85,17 +88,12 @@ public class Interactable : MonoBehaviour
 				CollisionBlocker(isEnter);
 				break;
 			case eActionType.GOAL:
-				OnCollision();
-				GoalReaction();
+				OnGoalCollision();
+				gameObject.SetActive(false);
 				break;
 			case eActionType.HAZARD:
-				OnCollision();
+				OnDeathCollision();
 				break;
 		}
-	}
-
-	void GoalReaction()
-	{
-		Debug.Log("GOOOOOOALLL!!!!!!!");
 	}
 }
