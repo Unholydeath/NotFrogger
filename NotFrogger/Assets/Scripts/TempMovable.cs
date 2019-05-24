@@ -10,12 +10,12 @@ public class TempMovable : MonoBehaviour
 
 	private void Start()
 	{
-		Interactable.CollisionBlocker += CarryOrNot;
+		Interactable.OnCarry += CarryOrNot;
 	}
 
 	private void OnDestroy()
 	{
-		Interactable.CollisionBlocker -= CarryOrNot;
+		Interactable.OnCarry -= CarryOrNot;
 	}
 
 	void Update()
