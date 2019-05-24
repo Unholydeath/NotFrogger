@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,13 +20,29 @@ public class GameManager : MonoBehaviour
 	public static float Timer { get { return m_time; } }
 	public static bool ManagerExists { get { return s_thisRef != null; } }
 
+    public Text CurrentScore;
+    public Text TimeLeft;
+
 	void Start()
     {
 		Interactable.OnDeathCollision += DeathReaction;
 		Interactable.OnGoalCollision += GoalReaction;
 
 		s_thisRef = this;
+
+        SetScore();
+        SetTime();
 	}
+
+    public void SetScore()
+    {
+        CurrentScore.text = Score.ToString();
+    }
+
+    public void SetTime()
+    {
+        TimeLeft.text = Timer.ToString();
+    }
 
 	private void OnDestroy()
 	{
