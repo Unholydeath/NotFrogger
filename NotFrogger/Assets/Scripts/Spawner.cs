@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
 
 	[SerializeField] GameObject m_playerRef;
 
+	List<bool> m_blocks;
 	bool m_block = false;
 
 	public int Lives { get { return m_lives; } }
@@ -21,6 +22,8 @@ public class Spawner : MonoBehaviour
 		Interactable.OnDeathCollision += Death;
 		Interactable.OnGoalCollision += Respawn;
 		Interactable.CollisionBlocker += Block;
+
+		m_blocks = new List<bool>();
 
 		++m_lives;
 		Respawn();
@@ -61,9 +64,18 @@ public class Spawner : MonoBehaviour
 		Debug.Log("GG");
 	}
 
-	void Block(bool toggle)
+	void Block(GameObject obj, bool toggle)
 	{
-		m_block = toggle;
+		m_blocks.Add(toggle);
+
+		int good = 0;
+		foreach(var b in m_blocks)
+		{
+			if (b) ++good;
+		}
+
+		m_block = good > m_blocks.Count - good;
+		Debug.Log("Blocked: " + m_block);
 	}
 
 	public void GainLife()

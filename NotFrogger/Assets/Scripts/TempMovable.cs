@@ -5,19 +5,29 @@ using UnityEngine;
 public class TempMovable : MonoBehaviour
 {
 	[SerializeField] bool m_isPlayer = false;
+	[SerializeField] bool m_carry = false;
 	[SerializeField] float m_speed = 1.0f;
-	[SerializeField] 
 
-    void Update()
+	private void Start()
+	{
+		Interactable.CollisionBlocker += CarryOrNot;
+	}
+
+	private void OnDestroy()
+	{
+		Interactable.CollisionBlocker -= CarryOrNot;
+	}
+
+	void Update()
     {
 		Vector3 velocity = transform.position;
         if(m_isPlayer)
 		{
-			var up = Input.GetAxis("Vertical");
-			var left = Input.GetAxis("Horizontal");
+			if (Input.GetKeyDown(KeyCode.W)) velocity.y += m_speed;
+			if (Input.GetKeyDown(KeyCode.S)) velocity.y -= m_speed;
 
-			if (up != 0.0f && Input.anyKeyDown) velocity += transform.up * m_speed * up;
-			if (left != 0.0f && Input.anyKeyDown) velocity += transform.right * m_speed * left;
+			if (Input.GetKeyDown(KeyCode.D)) velocity.x += m_speed;
+			if (Input.GetKeyDown(KeyCode.A)) velocity.x -= m_speed;
 		}
 		else
 		{
@@ -26,4 +36,19 @@ public class TempMovable : MonoBehaviour
 
 		transform.position = velocity;
     }
+
+	void CarryOrNot(GameObject obj, bool enter)
+	{
+		if (m_carry)
+		{
+			if (enter)
+			{
+				obj.transform.parent = transform;
+			}
+			else
+			{
+				obj.transform.parent = null;
+			}
+		}
+	}
 }

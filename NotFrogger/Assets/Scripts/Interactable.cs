@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
 	public static CollisionAction OnGoalCollision;
 	public static CollisionAction OnDeathCollision;
 
-	public delegate void CollisionToggle(bool toggle);
+	public delegate void CollisionToggle(GameObject obj, bool toggle);
 	public static CollisionToggle CollisionBlocker;
 
 	[SerializeField] eActionType m_type;
@@ -23,6 +23,7 @@ public class Interactable : MonoBehaviour
 		{
 			if(Subscribed)
 			{
+				Debug.Log("In");
 				HandleAction(collision.gameObject, true);
 			}
 		}
@@ -33,6 +34,7 @@ public class Interactable : MonoBehaviour
 		{
 			if (Subscribed)
 			{
+				Debug.Log("In");
 				HandleAction(collision.gameObject, true);
 			}
 		}
@@ -44,6 +46,7 @@ public class Interactable : MonoBehaviour
 		{
 			if (Subscribed)
 			{
+				Debug.Log("On");
 				HandleAction(other.gameObject, true);
 			}
 		}
@@ -54,6 +57,7 @@ public class Interactable : MonoBehaviour
 		{
 			if (Subscribed)
 			{
+				Debug.Log("On");
 				HandleAction(collision.gameObject, true);
 			}
 		}
@@ -65,6 +69,7 @@ public class Interactable : MonoBehaviour
 		{
 			if (Subscribed)
 			{
+				Debug.Log("Out");
 				HandleAction(other.gameObject, false);
 			}
 		}
@@ -75,6 +80,7 @@ public class Interactable : MonoBehaviour
 		{
 			if (Subscribed)
 			{
+				Debug.Log("Out");
 				HandleAction(collision.gameObject, false);
 			}
 		}
@@ -85,7 +91,7 @@ public class Interactable : MonoBehaviour
 		switch(m_type)
 		{
 			case eActionType.SAFEZONE:
-				CollisionBlocker(isEnter);
+				CollisionBlocker(go, isEnter);
 				break;
 			case eActionType.GOAL:
 				OnGoalCollision();
