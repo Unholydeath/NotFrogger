@@ -4,80 +4,61 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-	[SerializeField] Transform m_initPoint;
-	[SerializeField] Transform m_rePoint;
-
+	[SerializeField] GameObject m_objOfFocus;
+	[SerializeField] Transform m_spawnPoint;
 	[SerializeField] int m_lives = 1;
 
-	[SerializeField] GameObject m_playerRef;
-
-	bool m_block = false;
-
-	public int Lives { get { return m_lives; } }
-	public int testing { get; set; }
+	bool m_isBlocked = false;
+	List<bool> m_blocks;
 
 	private void Start()
 	{
-		Interactable.OnDeathCollision += Death;
-		Interactable.OnGoalCollision += Respawn;
-		Interactable.CollisionBlocker += Block;
+		m_blocks = new List<bool>();
 
-		++m_lives;
-		Respawn();
+		Interactable.OnGoalCollision += Respawn;
+		Interactable.OnZoneEnter += BlockDeath;
+		Interactable.OnDeathCollision += Death;
 	}
 
 	private void OnDestroy()
 	{
-		Interactable.OnDeathCollision -= Death;
 		Interactable.OnGoalCollision -= Respawn;
-		Interactable.CollisionBlocker -= Block;
+		Interactable.OnZoneEnter -= BlockDeath;
+		Interactable.OnDeathCollision -= Death;
+	}
+
+	void Respawn()
+	{
+		if(m_lives > 0)
+		{
+			m_objOfFocus.transform.position = m_spawnPoint.position;
+			m_objOfFocus.transform.rotation = m_spawnPoint.rotation;
+		}
+		else
+		{
+			GameManager.GameOver();
+		}
 	}
 
 	void Death()
 	{
-		if (!m_block)
+		if(!m_isBlocked)
 		{
 			--m_lives;
 			Respawn();
 		}
 	}
 
-	void Respawn()
+	void BlockDeath(bool entered)
 	{
-		if (m_lives >= 0)
+		m_blocks.Add(entered);
+
+		int up = 0;
+		foreach(var b in m_blocks)
 		{
-			m_playerRef.transform.position = m_rePoint.position;
-			m_playerRef.transform.rotation = m_rePoint.rotation;
+			if (b) ++up;
 		}
-		else
-		{
-			GameOver();
-		}
-	}
 
-	void GameOver()
-	{
-		Time.timeScale = 0.0f;
-		Debug.Log("GG");
-	}
-
-	void Block(bool toggle)
-	{
-		m_block = toggle;
-	}
-
-	public void GainLife()
-	{
-		++m_lives;
-	}
-
-	public void GainLives(int amount)
-	{
-		if (amount > 0) m_lives += amount;
-	}
-
-	public void ReMapPoint(Transform newPoint)
-	{
-		if (newPoint) m_rePoint = newPoint;
+		m_isBlocked = up > m_blocks.Count / 2;
 	}
 }

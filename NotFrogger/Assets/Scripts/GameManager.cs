@@ -1,31 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-	[SerializeField] float m_goalBase = 10.0f;
-	[SerializeField] float m_deathBase = 5.0f;
+	[SerializeField] float m_goalBase = 1f;
+	[SerializeField] float m_deathBase = 1f;
 
-	[SerializeField] Interactable[] m_goals;
+	static float m_score = 0.0f;
+	static float m_time = 0.0f;
+	static GameManager m_selfRef = null;
 
-	float m_score = 0.0f;
-	float m_time = 0.0f;
 	float m_lap = 0.0f;
 
-	public float Score { get { return m_score; } }
-	public float Timer { get { return m_time; } }
+	public static int Score { get { return (int)m_score; } }
+	public static int GameTime { get { return (int)m_time; } }
+	public static bool ManagerExists { get { return m_selfRef != null; } }
 
-	void Start()
-    {
-		Interactable.OnDeathCollision += DeathReaction;
-		Interactable.OnGoalCollision += GoalReaction;
+	private void Start()
+	{
+		m_selfRef = this;
+
+		Interactable.OnGoalCollision += Goal;
 	}
 
 	private void OnDestroy()
 	{
-		Interactable.OnDeathCollision -= DeathReaction;
-		Interactable.OnGoalCollision -= GoalReaction;
+		Interactable.OnGoalCollision -= Goal;
 	}
 
 	private void FixedUpdate()
@@ -33,34 +35,24 @@ public class GameManager : MonoBehaviour
 		m_time += Time.deltaTime;
 	}
 
-	void GoalReaction()
+	void Goal()
 	{
-		m_score += m_goalBase / (m_time - m_lap);
-		m_lap = m_time;
-
-		bool active = false;
-		foreach(var goal in m_goals)
-		{
-			if (goal.gameObject.activeInHierarchy)
-			{
-				active = true;
-				break;
-			}
-		}
-
-		if(active)
-		{
-			GameOver();
-		}
+		m_score += m_goalBase * (m_lap /  GameTime);
+		m_lap = GameTime;
 	}
 
-	void DeathReaction()
+	void Death()
 	{
 		m_score -= m_deathBase;
 	}
 
-	void GameOver()
+	public static void DeathAlert()
 	{
-		//TODO do something
+		DeathAlert();
+	}
+
+	public static void GameOver()
+	{
+		Debug.Log("GG");
 	}
 }
