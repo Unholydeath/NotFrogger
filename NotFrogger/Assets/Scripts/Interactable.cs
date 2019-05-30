@@ -77,6 +77,7 @@ public class Interactable : MonoBehaviour
 		{
 			case eActionType.GOAL:
 				if (OnGoalCollision != null) OnGoalCollision();
+				gameObject.SetActive(false);
 				break;
 			case eActionType.HAZARD:
 				if (OnDeathCollision != null) OnDeathCollision();
