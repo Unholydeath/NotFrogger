@@ -16,17 +16,15 @@ public class Spawner : MonoBehaviour
 		m_blocks = new List<bool>();
 
 		Interactable.OnGoalCollision += Respawn;
-		Interactable.CollisionBlocker += BlockDeath;
+		Interactable.OnZoneEnter += BlockDeath;
 		Interactable.OnDeathCollision += Death;
-		FloatManager.OnDrown += Death;
 	}
 
 	private void OnDestroy()
 	{
 		Interactable.OnGoalCollision -= Respawn;
-		Interactable.CollisionBlocker -= BlockDeath;
+		Interactable.OnZoneEnter -= BlockDeath;
 		Interactable.OnDeathCollision -= Death;
-		FloatManager.OnDrown -= Death;
 	}
 
 	void Respawn()
