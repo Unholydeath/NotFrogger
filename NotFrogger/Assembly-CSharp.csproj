@@ -63,10 +63,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Blink.cs" />
+    <Compile Include="Assets\Scripts\FloatManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameTransition.cs" />
+    <Compile Include="Assets\Scripts\GyroMovement.cs" />
     <Compile Include="Assets\Scripts\Gyroscope.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Joystick.cs" />
+    <Compile Include="Assets\Scripts\Liquids.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\TempMovable.cs" />
     <Compile Include="Assets\Scripts\Waypoint.cs" />

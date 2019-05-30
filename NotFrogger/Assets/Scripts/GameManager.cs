@@ -18,12 +18,28 @@ public class GameManager : MonoBehaviour
 	public static int GameTime { get { return (int)m_time; } }
 	public static bool ManagerExists { get { return m_selfRef != null; } }
 
+    public Text GameScore;
+    public Text gTime;
+
 	private void Start()
 	{
 		m_selfRef = this;
 
 		Interactable.OnGoalCollision += Goal;
+
+        SetScore();
+        SetTime();
 	}
+
+    private void SetScore()
+    {
+        GameScore.text = Score.ToString();
+    }
+
+    private void SetTime()
+    {
+        gTime.text = GameTime.ToString();
+    }
 
 	private void OnDestroy()
 	{

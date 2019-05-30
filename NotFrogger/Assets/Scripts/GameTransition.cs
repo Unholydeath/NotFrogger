@@ -8,6 +8,6 @@ public class GameTransition : MonoBehaviour
 {
     public void NextScene()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("BarelyFrogger");
     }
 }
