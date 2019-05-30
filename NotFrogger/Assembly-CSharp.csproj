@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameTransition.cs" />
     <Compile Include="Assets\Scripts\Gyroscope.cs" />
-    <Compile Include="Assets\Scripts\GyroSpriteMovementTest.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\Liquids.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
