@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GyroSpriteMovementTest : MonoBehaviour
+public class Joystick : MonoBehaviour
 {
     public Vector3 deviceAcceleration;
     // Start is called before the first frame update
