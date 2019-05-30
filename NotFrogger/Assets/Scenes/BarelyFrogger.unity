@@ -242,10 +242,10 @@ GameObject:
   m_Component:
   - component: {fileID: 65507286}
   - component: {fileID: 65507291}
-  - component: {fileID: 65507290}
   - component: {fileID: 65507289}
   - component: {fileID: 65507288}
   - component: {fileID: 65507287}
+  - component: {fileID: 65507290}
   m_Layer: 8
   m_Name: ShortLog (2)
   m_TagString: River
@@ -338,10 +338,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 65507285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &65507291
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -435,10 +435,10 @@ GameObject:
   m_Component:
   - component: {fileID: 76724422}
   - component: {fileID: 76724427}
-  - component: {fileID: 76724426}
   - component: {fileID: 76724425}
   - component: {fileID: 76724424}
   - component: {fileID: 76724423}
+  - component: {fileID: 76724426}
   m_Layer: 8
   m_Name: LongLog
   m_TagString: River
@@ -453,13 +453,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76724421}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 73247965}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &76724423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isPlayer: 0
   m_carry: 1
-  m_speed: 1
+  m_speed: -1
 --- !u!114 &76724426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,10 +531,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 76724421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &76724427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 0
+  m_action: 0
 --- !u!212 &171039151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -901,10 +901,10 @@ GameObject:
   m_Component:
   - component: {fileID: 186116990}
   - component: {fileID: 186116995}
-  - component: {fileID: 186116994}
   - component: {fileID: 186116993}
   - component: {fileID: 186116992}
   - component: {fileID: 186116991}
+  - component: {fileID: 186116994}
   m_Layer: 8
   m_Name: Turtle (3)
   m_TagString: River
@@ -997,10 +997,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 186116989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &186116995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1559,10 +1559,10 @@ GameObject:
   m_Component:
   - component: {fileID: 285981790}
   - component: {fileID: 285981795}
-  - component: {fileID: 285981794}
   - component: {fileID: 285981793}
   - component: {fileID: 285981792}
   - component: {fileID: 285981791}
+  - component: {fileID: 285981794}
   m_Layer: 8
   m_Name: Turtle (4)
   m_TagString: River
@@ -1655,10 +1655,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 285981789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &285981795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1718,10 +1718,10 @@ GameObject:
   m_Component:
   - component: {fileID: 293021918}
   - component: {fileID: 293021923}
-  - component: {fileID: 293021922}
   - component: {fileID: 293021921}
   - component: {fileID: 293021920}
   - component: {fileID: 293021919}
+  - component: {fileID: 293021922}
   m_Layer: 8
   m_Name: Turtle (2)
   m_TagString: River
@@ -1814,10 +1814,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 293021917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &293021923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 0
+  m_action: 0
 --- !u!212 &346930571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2169,7 +2169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 0
+  m_action: 0
 --- !u!212 &349335444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2276,10 +2276,10 @@ GameObject:
   m_Component:
   - component: {fileID: 359581847}
   - component: {fileID: 359581852}
-  - component: {fileID: 359581851}
   - component: {fileID: 359581850}
   - component: {fileID: 359581849}
   - component: {fileID: 359581848}
+  - component: {fileID: 359581851}
   m_Layer: 8
   m_Name: Lily (2)
   m_TagString: River
@@ -2372,10 +2372,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 359581846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &359581852
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2435,10 +2435,10 @@ GameObject:
   m_Component:
   - component: {fileID: 367849863}
   - component: {fileID: 367849868}
-  - component: {fileID: 367849867}
   - component: {fileID: 367849866}
   - component: {fileID: 367849865}
   - component: {fileID: 367849864}
+  - component: {fileID: 367849867}
   m_Layer: 8
   m_Name: Turtle
   m_TagString: River
@@ -2531,10 +2531,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 367849862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &367849868
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2594,10 +2594,10 @@ GameObject:
   m_Component:
   - component: {fileID: 400270015}
   - component: {fileID: 400270020}
-  - component: {fileID: 400270019}
   - component: {fileID: 400270017}
   - component: {fileID: 400270016}
   - component: {fileID: 400270018}
+  - component: {fileID: 400270019}
   m_Layer: 8
   m_Name: Lily (1)
   m_TagString: River
@@ -2690,10 +2690,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 400270014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &400270020
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2832,10 +2832,10 @@ GameObject:
   m_Component:
   - component: {fileID: 451741467}
   - component: {fileID: 451741472}
-  - component: {fileID: 451741471}
   - component: {fileID: 451741470}
   - component: {fileID: 451741469}
   - component: {fileID: 451741468}
+  - component: {fileID: 451741471}
   m_Layer: 8
   m_Name: Lily (3)
   m_TagString: River
@@ -2928,10 +2928,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 451741466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &451741472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4381,10 +4381,10 @@ GameObject:
   m_Component:
   - component: {fileID: 889861979}
   - component: {fileID: 889861984}
-  - component: {fileID: 889861983}
   - component: {fileID: 889861982}
   - component: {fileID: 889861981}
   - component: {fileID: 889861980}
+  - component: {fileID: 889861983}
   m_Layer: 8
   m_Name: ShortLog (1)
   m_TagString: River
@@ -4477,10 +4477,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 889861978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &889861984
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4979,7 +4979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_action: 0
 --- !u!212 &1027640628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5117,7 +5117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_action: 0
 --- !u!212 &1037601834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5416,10 +5416,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1111544188}
   - component: {fileID: 1111544193}
-  - component: {fileID: 1111544192}
   - component: {fileID: 1111544190}
   - component: {fileID: 1111544189}
   - component: {fileID: 1111544191}
+  - component: {fileID: 1111544192}
   m_Layer: 8
   m_Name: Lily
   m_TagString: Belt
@@ -5512,10 +5512,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1111544187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &1111544193
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5575,10 +5575,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1126968724}
   - component: {fileID: 1126968729}
-  - component: {fileID: 1126968728}
   - component: {fileID: 1126968727}
   - component: {fileID: 1126968726}
   - component: {fileID: 1126968725}
+  - component: {fileID: 1126968728}
   m_Layer: 8
   m_Name: Lily (4)
   m_TagString: River
@@ -5671,10 +5671,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1126968723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &1126968729
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14355,10 +14355,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1286910898}
   - component: {fileID: 1286910903}
-  - component: {fileID: 1286910902}
   - component: {fileID: 1286910901}
   - component: {fileID: 1286910900}
   - component: {fileID: 1286910899}
+  - component: {fileID: 1286910902}
   m_Layer: 8
   m_Name: MedLog
   m_TagString: River
@@ -14373,13 +14373,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286910897}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 177876995}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1286910899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14441,7 +14441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isPlayer: 0
   m_carry: 1
-  m_speed: 4
+  m_speed: -4
 --- !u!114 &1286910902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14451,10 +14451,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1286910897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &1286910903
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14514,10 +14514,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1311876046}
   - component: {fileID: 1311876051}
-  - component: {fileID: 1311876050}
   - component: {fileID: 1311876049}
   - component: {fileID: 1311876048}
   - component: {fileID: 1311876047}
+  - component: {fileID: 1311876050}
   m_Layer: 8
   m_Name: ShortLog (3)
   m_TagString: River
@@ -14610,10 +14610,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311876045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &1311876051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14673,10 +14673,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1319343343}
   - component: {fileID: 1319343348}
-  - component: {fileID: 1319343347}
   - component: {fileID: 1319343346}
   - component: {fileID: 1319343345}
   - component: {fileID: 1319343344}
+  - component: {fileID: 1319343347}
   m_Layer: 8
   m_Name: Turtle (5)
   m_TagString: River
@@ -14769,10 +14769,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319343342}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &1319343348
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14924,13 +14924,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326374876}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 73247965}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355827185
 GameObject:
   m_ObjectHideFlags: 0
@@ -14985,10 +14985,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1355827185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_isFloat: 0
 --- !u!212 &1355827188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15316,7 +15316,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_goalBase: 10
   m_deathBase: 10
-  m_goals: []
 --- !u!4 &1402128194
 Transform:
   m_ObjectHideFlags: 0
@@ -15802,7 +15801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_action: 0
 --- !u!212 &1601216551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16094,10 +16093,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1675225252}
   - component: {fileID: 1675225257}
-  - component: {fileID: 1675225256}
   - component: {fileID: 1675225255}
   - component: {fileID: 1675225254}
   - component: {fileID: 1675225253}
+  - component: {fileID: 1675225256}
   m_Layer: 8
   m_Name: LongLog (1)
   m_TagString: River
@@ -16112,13 +16111,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675225251}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 73247965}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1675225253
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16180,7 +16179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isPlayer: 0
   m_carry: 1
-  m_speed: 1
+  m_speed: -1
 --- !u!114 &1675225256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16190,10 +16189,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675225251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &1675225257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16723,10 +16722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eac8f7eda0527442b8f8dc34e4fe416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_initPoint: {fileID: 218699001}
-  m_rePoint: {fileID: 218699001}
-  m_lives: 3
-  m_playerRef: {fileID: 777386779}
+  m_objOfFocus: {fileID: 777386779}
+  m_spawnPoint: {fileID: 218699001}
+  m_lives: 99
 --- !u!4 &1777698252
 Transform:
   m_ObjectHideFlags: 0
@@ -17094,7 +17092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 0
+  m_action: 0
 --- !u!212 &1932383202
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17215,7 +17213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 0
+  m_action: 0
 --- !u!212 &1936592665
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17275,10 +17273,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1948079799}
   - component: {fileID: 1948079804}
-  - component: {fileID: 1948079803}
   - component: {fileID: 1948079802}
   - component: {fileID: 1948079801}
   - component: {fileID: 1948079800}
+  - component: {fileID: 1948079803}
   m_Layer: 8
   m_Name: Turtle (1)
   m_TagString: River
@@ -17371,10 +17369,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1948079798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &1948079804
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17937,10 +17935,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2096853739}
   - component: {fileID: 2096853744}
-  - component: {fileID: 2096853743}
   - component: {fileID: 2096853742}
   - component: {fileID: 2096853741}
   - component: {fileID: 2096853740}
+  - component: {fileID: 2096853743}
   m_Layer: 8
   m_Name: ShortLog
   m_TagString: River
@@ -18033,10 +18031,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2096853738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa40fe566e6cc45b0bb3973ba4419f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 2
+  m_isFloat: 1
 --- !u!212 &2096853744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18277,7 +18275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5db733c708913949a146d6c5b602fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_action: 0
 --- !u!212 &2125280983
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18412,6 +18410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128771717}
+  - component: {fileID: 2128771718}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -18444,6 +18443,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2128771718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128771716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6b6bfbd5766564981a0782d474ee76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143498240
 GameObject:
   m_ObjectHideFlags: 0
