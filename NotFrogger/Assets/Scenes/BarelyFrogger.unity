@@ -967,8 +967,12 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 350.3, y: -0.000061035156}
-  m_SizeDelta: {x: -682.5, y: 13}
+<<<<<<< Updated upstream
+  m_AnchoredPosition: {x: 345.75, y: 0.0008544922}
+=======
+  m_AnchoredPosition: {x: 345.75, y: 0.0008239746}
+>>>>>>> Stashed changes
+  m_SizeDelta: {x: -691.5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &241426057
 MonoBehaviour:
@@ -2778,8 +2782,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 8
+    height: 8
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3583,7 +3587,8 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-<<<<<<<
+<<<<<<< Updated upstream
+=======
 --- !u!114 &706302747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3593,13 +3598,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 706302742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eac8f7eda0527442b8f8dc34e4fe416, type: 3}
+  m_Script: {fileID: 11500000, guid: 801e33a4eb2ce3446bd13f2785eb12d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objOfFocus: {fileID: 0}
-  m_spawnPoint: {fileID: 0}
-  m_lives: 3
-  Lives: {fileID: 2018830905}
+  m_goalBase: 10
+  m_deathBase: 5
+  GameScore: {fileID: 1543376039}
+  gTime: {fileID: 805442672}
+>>>>>>> Stashed changes
 --- !u!1 &720979292
 =======
 --- !u!1 &708881015
@@ -8811,9 +8817,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_goalBase: 10
+<<<<<<< Updated upstream
   m_deathBase: 2
   GameScore: {fileID: 1543376039}
   gTime: {fileID: 805442672}
+=======
+  m_deathBase: 10
+  GameScore: {fileID: 0}
+  gTime: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!4 &1402128194
 Transform:
   m_ObjectHideFlags: 0
