@@ -5564,8 +5564,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 8
+    height: 8
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -11415,9 +11415,15 @@ MonoBehaviour:
   m_hud: {fileID: 1519408788}
   m_goalsToWin: 5
   m_goalBase: 10
+<<<<<<< Updated upstream
   m_deathBase: 2
   GameScore: {fileID: 1543376039}
   gTime: {fileID: 805442672}
+=======
+  m_deathBase: 10
+  GameScore: {fileID: 0}
+  gTime: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!4 &1402128194
 Transform:
   m_ObjectHideFlags: 0
