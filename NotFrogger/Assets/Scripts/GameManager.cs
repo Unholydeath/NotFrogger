@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
 		Interactable.OnGoalCollision += Goal;
 
         SetScore();
-        SetTime();
+        //SetTime();
+        //UpdateTime();
 	}
 
     private void SetScore()
@@ -36,10 +37,15 @@ public class GameManager : MonoBehaviour
         GameScore.text = Score.ToString();
     }
 
-    private void SetTime()
-    {
-        gTime.text = GameTime.ToString();
-    }
+    //private void SetTime()
+    //{
+    //    gTime.text = GameTime.ToString();
+    //}
+
+    //private void UpdateTime()
+    //{
+    //    gTime.text = "" + GameTime.ToString();
+    //}
 
 	private void OnDestroy()
 	{
@@ -49,6 +55,7 @@ public class GameManager : MonoBehaviour
 	private void FixedUpdate()
 	{
 		m_time += Time.deltaTime;
+        gTime.text = "" + m_time.ToString();
 	}
 
 	void Goal()

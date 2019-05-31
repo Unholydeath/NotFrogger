@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Liquids.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\TempMovable.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\Waypoint.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Austin Blandford/Documents/GitHub/NotFrogger/NotFrogger/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
