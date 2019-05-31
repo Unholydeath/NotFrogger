@@ -1,0 +1,9 @@
+diff a/NotFrogger/Assets/Scripts/GyroMovement.cs.meta~HEAD.meta b/NotFrogger/Assets/Scripts/GyroMovement.cs.meta~HEAD.meta	(rejected hunks)
+@@ -1,7 +0,0 @@
+-fileFormatVersion: 2
+-guid: b998e265741147a4face70fdb185eb96
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
