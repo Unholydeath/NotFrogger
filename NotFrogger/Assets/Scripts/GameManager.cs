@@ -28,24 +28,12 @@ public class GameManager : MonoBehaviour
 		Interactable.OnGoalCollision += Goal;
 
         SetScore();
-        //SetTime();
-        //UpdateTime();
 	}
 
     private void SetScore()
     {
         GameScore.text = Score.ToString();
     }
-
-    //private void SetTime()
-    //{
-    //    gTime.text = GameTime.ToString();
-    //}
-
-    //private void UpdateTime()
-    //{
-    //    gTime.text = "" + GameTime.ToString();
-    //}
 
 	private void OnDestroy()
 	{
