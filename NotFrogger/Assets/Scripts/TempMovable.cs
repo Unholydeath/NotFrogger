@@ -30,7 +30,6 @@ public class TempMovable : MonoBehaviour
 		if (m_child)
 		{
 			m_child.transform.position = m_child.transform.position + velocity;
-			Debug.Log(velocity);
 		}
 	}
 

@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Start.unity
+    guid: 26f3befb6d1ef194d8eb88ae6f2b6872
+  - enabled: 1
+    path: Assets/Scenes/BarelyFrogger.unity
+    guid: 837bebe5d4804894fb9c13c89e30a5c3
   m_configObjects: {}

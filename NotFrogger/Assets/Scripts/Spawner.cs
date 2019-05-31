@@ -8,17 +8,16 @@ public class Spawner : MonoBehaviour
 	[SerializeField] GameObject m_objOfFocus;
 	[SerializeField] Transform m_spawnPoint;
 	[SerializeField] int m_lives = 3;
+	[SerializeField] Text Lives;
 
 	bool m_isBlocked = false;
 	List<bool> m_blocks;
 
-    public Text Lives;
+	public int LivesLeft { get; set; }
 
 	private void Start()
 	{
 		m_blocks = new List<bool>();
-
-        Lives.text = m_lives.ToString();
 
 		Interactable.OnGoalCollision += Respawn;
 		Interactable.CollisionBlocker += BlockDeath;
@@ -32,6 +31,11 @@ public class Spawner : MonoBehaviour
 		Interactable.CollisionBlocker -= BlockDeath;
 		Interactable.OnDeathCollision -= Death;
 		FloatManager.OnDrown -= Death;
+	}
+
+	private void Update()
+	{
+		Lives.text = "" + LivesLeft.ToString();
 	}
 
 	void Respawn()
