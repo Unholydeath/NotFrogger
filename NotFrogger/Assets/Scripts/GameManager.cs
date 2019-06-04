@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 	public static bool ManagerExists { get { return m_selfRef != null; } }
 
 	public Text GameScore;
-	public Text gTime;
+	public Text GTime;
 
 	static bool m_lost = false;
 
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
 		Interactable.OnGoalCollision += Goal;
 
-		SetScore();
+		GameScore.text = "" + Score.ToString();
 
 		m_losePanel.SetActive(false);
 		m_winPanel.SetActive(false);
@@ -49,18 +49,12 @@ public class GameManager : MonoBehaviour
 		Interactable.OnGoalCollision -= Goal;
 	}
 
-	private void SetScore()
-	{
-		GameScore.text = Score.ToString();
-	}
-
 	private void FixedUpdate()
 	{
 		if (!m_lost && m_goalsToWin > 0)
 		{
 			m_time += Time.deltaTime;
-			gTime.text = "" + GameTime.ToString();
-			SetScore();
+			GTime.text = "" + GameTime.ToString();
 		}
 		else
 		{
@@ -76,7 +70,9 @@ public class GameManager : MonoBehaviour
 
 	void Goal()
 	{
-		m_score += m_goalBase * (m_lap /  GameTime);
+		m_score += m_goalBase + (m_lap /  GameTime);
+		GameScore.text = "" + Score.ToString();
+
 		m_lap = GameTime;
 		--m_goalsToWin;
 	}
@@ -84,6 +80,7 @@ public class GameManager : MonoBehaviour
 	void Death()
 	{
 		m_score -= m_deathBase;
+		GameScore.text = "" + Score.ToString();
 	}
 
 	public static void DeathAlert()
