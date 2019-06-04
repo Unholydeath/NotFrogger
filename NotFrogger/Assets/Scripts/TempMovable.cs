@@ -9,28 +9,37 @@ public class TempMovable : MonoBehaviour
 	[SerializeField] float m_speed = 1.0f;
 
 	GameObject m_child = null;
+	bool m_isPaused = false;
 
 	void Update()
     {
-		Vector3 velocity = Vector3.zero;
-		if (m_isPlayer)
+		if (!m_isPaused)
 		{
-			if (Input.GetKeyDown(KeyCode.W)) velocity.y += m_speed;
-			if (Input.GetKeyDown(KeyCode.S)) velocity.y -= m_speed;
+			Vector3 velocity = Vector3.zero;
+			if (m_isPlayer)
+			{
+				if (Input.GetKeyDown(KeyCode.W)) velocity.y += m_speed;
+				if (Input.GetKeyDown(KeyCode.S)) velocity.y -= m_speed;
 
-			if (Input.GetKeyDown(KeyCode.D)) velocity.x += m_speed;
-			if (Input.GetKeyDown(KeyCode.A)) velocity.x -= m_speed;
-		}
-		else
-		{
-			velocity += transform.right * Time.deltaTime * m_speed;
-		}
+				if (Input.GetKeyDown(KeyCode.D)) velocity.x += m_speed;
+				if (Input.GetKeyDown(KeyCode.A)) velocity.x -= m_speed;
+			}
+			else
+			{
+				velocity += transform.right * Time.deltaTime * m_speed;
+			}
 
-		transform.position = transform.position + velocity;
-		if (m_child)
-		{
-			m_child.transform.position = m_child.transform.position + velocity;
+			transform.position = transform.position + velocity;
+			if (m_child)
+			{
+				m_child.transform.position = m_child.transform.position + velocity;
+			}
 		}
+	}
+
+	void Pause(bool pause)
+	{
+		m_isPaused = pause;
 	}
 
 	private void OnTriggerEnter(Collider other)
