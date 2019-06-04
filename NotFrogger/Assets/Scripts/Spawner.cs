@@ -19,6 +19,8 @@ public class Spawner : MonoBehaviour
 	{
 		m_blocks = new List<bool>();
 
+        Lives.text = m_lives.ToString();
+
 		Interactable.OnGoalCollision += Respawn;
 		Interactable.CollisionBlocker += BlockDeath;
 		Interactable.OnDeathCollision += Death;
@@ -35,7 +37,7 @@ public class Spawner : MonoBehaviour
 
 	private void Update()
 	{
-		Lives.text = "" + LivesLeft.ToString();
+		Lives.text = "" + m_lives.ToString();
 	}
 
 	void Respawn()
