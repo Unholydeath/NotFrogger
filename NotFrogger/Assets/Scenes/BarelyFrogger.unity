@@ -11268,7 +11268,7 @@ MonoBehaviour:
   m_winPanel: {fileID: 888347804}
   m_losePanel: {fileID: 241426055}
   m_hud: {fileID: 1519408788}
-  m_goalsToWin: 2
+  m_goalsToWin: 5
   m_goalBase: 10
   m_deathBase: 2
   GameScore: {fileID: 1543376039}
@@ -12509,6 +12509,7 @@ MonoBehaviour:
   m_spawnPoint: {fileID: 218699001}
   m_lives: 3
   Lives: {fileID: 752659012}
+  m_clickToContinue: 0
 --- !u!4 &1777698252
 Transform:
   m_ObjectHideFlags: 0
