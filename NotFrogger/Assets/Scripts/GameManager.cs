@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 	static GameManager m_selfRef = null;
 
 	float m_lap = 0.0f;
+	int m_goals = 0;
 	bool m_inTransition = false;
 
 	public static int Score { get { return (int)m_score; } }
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
+		Debug.Log("Start");
 		m_selfRef = this;
 
 		Interactable.OnGoalCollision += Goal;
@@ -46,6 +48,13 @@ public class GameManager : MonoBehaviour
 		m_losePanel.SetActive(false);
 		m_winPanel.SetActive(false);
 		m_hud.SetActive(true);
+
+		m_lost = false;
+		m_lap = 0.0f;
+		m_inTransition = false;
+		m_score = 0.0f;
+		m_time = 0.0f;
+		m_goals = 0;
 	}
 
 	private void OnDestroy()
@@ -62,7 +71,7 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			if (m_goalsToWin == 0) m_winPanel.SetActive(true);
+			if (m_goals == m_goalsToWin) m_winPanel.SetActive(true);
 			else if (m_lost) m_losePanel.SetActive(true);
 
 			if (!m_inTransition)
@@ -83,7 +92,7 @@ public class GameManager : MonoBehaviour
 		GameScore.text = "" + Score.ToString();
 
 		m_lap = GameTime;
-		--m_goalsToWin;
+		++m_goals;
 	}
 
 	void Death()
