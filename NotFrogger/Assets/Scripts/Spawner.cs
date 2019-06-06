@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 	[SerializeField] Transform m_spawnPoint;
 	[SerializeField] int m_lives = 3;
 	[SerializeField] Text Lives;
+	[SerializeField] bool m_clickToContinue = false;
 
 	bool m_isBlocked = false;
 	List<bool> m_blocks;
@@ -44,8 +45,14 @@ public class Spawner : MonoBehaviour
 	{
 		if(m_lives > 0)
 		{
-			m_objOfFocus.transform.position = m_spawnPoint.position;
-			m_objOfFocus.transform.rotation = m_spawnPoint.rotation;
+			bool cont = !m_clickToContinue;
+			if (m_clickToContinue && Input.anyKeyDown) cont = true;
+
+			if (cont)
+			{
+				m_objOfFocus.transform.position = m_spawnPoint.position;
+				m_objOfFocus.transform.rotation = m_spawnPoint.rotation;
+			}
 		}
 		else
 		{

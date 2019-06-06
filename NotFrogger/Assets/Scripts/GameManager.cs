@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
 
 	static bool m_lost = false;
 
+	public delegate void GameAction();
+	public static GameAction OnPause;
+
+
 	private void Start()
 	{
 		m_selfRef = this;
@@ -66,6 +70,11 @@ public class GameManager : MonoBehaviour
 				StartCoroutine("ToStart");
 			}
 		}
+	}
+
+	public void PauseGame()
+	{
+		if (OnPause != null) OnPause();
 	}
 
 	void Goal()

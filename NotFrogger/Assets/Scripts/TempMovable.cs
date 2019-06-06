@@ -11,6 +11,16 @@ public class TempMovable : MonoBehaviour
 	GameObject m_child = null;
 	bool m_isPaused = false;
 
+	private void Start()
+	{
+		GameManager.OnPause += Pause;
+	}
+
+	private void OnDestroy()
+	{
+		GameManager.OnPause -= Pause;
+	}
+
 	void Update()
     {
 		if (!m_isPaused)
@@ -37,9 +47,9 @@ public class TempMovable : MonoBehaviour
 		}
 	}
 
-	void Pause(bool pause)
+	void Pause()
 	{
-		m_isPaused = pause;
+		m_isPaused = !m_isPaused;
 	}
 
 	private void OnTriggerEnter(Collider other)
