@@ -28,11 +28,11 @@ public class TempMovable : MonoBehaviour
 			Vector3 velocity = Vector3.zero;
 			if (m_isPlayer)
 			{
-				if (Input.GetKeyDown(KeyCode.W)) velocity.y += m_speed;
-				if (Input.GetKeyDown(KeyCode.S)) velocity.y -= m_speed;
+				if (Input.GetKey(KeyCode.W)) velocity.y += m_speed;
+				if (Input.GetKey(KeyCode.S)) velocity.y -= m_speed;
 
-				if (Input.GetKeyDown(KeyCode.D)) velocity.x += m_speed;
-				if (Input.GetKeyDown(KeyCode.A)) velocity.x -= m_speed;
+				if (Input.GetKey(KeyCode.D)) velocity.x += m_speed;
+				if (Input.GetKey(KeyCode.A)) velocity.x -= m_speed;
 			}
 			else
 			{
