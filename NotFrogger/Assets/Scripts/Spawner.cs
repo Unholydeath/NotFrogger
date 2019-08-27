@@ -7,18 +7,18 @@ public class Spawner : MonoBehaviour
 {
 	[SerializeField] GameObject m_objOfFocus;
 	[SerializeField] Transform m_spawnPoint;
-	[SerializeField] int m_lives = 3;
+	[SerializeField] int m_livesBase = 3;
 	[SerializeField] Text Lives;
 	[SerializeField] bool m_clickToContinue = false;
 
 	bool m_isBlocked = false;
+	int m_lives = 0;
 	List<bool> m_blocks;
-
-	public int LivesLeft { get; set; }
 
 	private void Start()
 	{
 		m_blocks = new List<bool>();
+		m_lives = m_livesBase;
 
         Lives.text = m_lives.ToString();
 
