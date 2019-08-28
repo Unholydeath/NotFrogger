@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] float m_transitionTime = 3.0f;
-	[SerializeField] GameObject m_winPanel;
+	[SerializeField] float m_leaderBoardTransitionTime = 5.0f;
+    [SerializeField] GameObject m_winPanel;
 	[SerializeField] GameObject m_losePanel;
 	[SerializeField] GameObject m_hud;
     [SerializeField] GameObject m_leaderboard;
+    [SerializeField] GameObject m_createHiScore;
+    [SerializeField] GameObject m_hiScoreList;
     [SerializeField] Text m_hiScoreSlot1;
     [SerializeField] Text m_hiScoreSlot2;
     [SerializeField] Text m_hiScoreSlot3;
@@ -27,8 +30,7 @@ public class GameManager : MonoBehaviour
 
 	float m_lap = 0.0f;
 	int m_goals = 0;
-    bool m_inTransitionLeaderboard = false;
-	bool m_inTransitionStart = false;
+	bool m_inTransition = false;
     int m_hiScore1;
     int m_hiScore2;
     int m_hiScore3;
@@ -66,10 +68,11 @@ public class GameManager : MonoBehaviour
 		m_losePanel.SetActive(false);
 		m_winPanel.SetActive(false);
 		m_hud.SetActive(true);
+        m_leaderboard.SetActive(false);
 
 		m_lost = false;
 		m_lap = 0.0f;
-		m_inTransitionStart = false;
+		m_inTransition = false;
 		m_score = 0.0f;
 		m_time = 0.0f;
 		m_goals = 0;
