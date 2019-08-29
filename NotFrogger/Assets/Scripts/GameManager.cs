@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] float m_transitionTime = 3.0f;
-	[SerializeField] float m_leaderBoardTransitionTime = 5.0f;
+	//[SerializeField] float m_leaderBoardTransitionTime = 5.0f;
     [SerializeField] GameObject m_winPanel;
 	[SerializeField] GameObject m_losePanel;
 	[SerializeField] GameObject m_hud;
     [SerializeField] GameObject m_leaderboard;
     [SerializeField] GameObject m_createHiScore;
     [SerializeField] GameObject m_hiScoreList;
-    [SerializeField] GameObject[] m_hiScoreInitials;
+    [SerializeField] GameObject[] m_hiScoreMessages;
     [SerializeField] Text m_hiScoreSlot1;
     [SerializeField] Text m_hiScoreSlot2;
     [SerializeField] Text m_hiScoreSlot3;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 	float m_lap = 0.0f;
 	int m_goals = 0;
 	bool m_inTransition = false;
-    bool m_playingGame = true;
+    //bool m_creatingHiScore = false;
     int m_hiScore1;
     int m_hiScore2;
     int m_hiScore3;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     string m_player5Name;
     string m_hiScoreTemplate1 = ":          ";
     string m_hiScoreTemplate2 = "          ";
-    int activeInitialIndex = 0;
+    //int activeInitialIndex = 0;
 
     public static int Score { get { return (int)m_score; } }
 	public static int GameTime { get { return (int)m_time; } }
@@ -92,42 +92,31 @@ public class GameManager : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-        if (m_playingGame)
+        if (!m_lost && m_goalsToWin > 0)
         {
-            if (!m_lost && m_goalsToWin > 0)
-            {
-                m_time += Time.deltaTime;
-                GTime.text = "" + GameTime.ToString();
-            }
-            else
-            {
-                if (m_goals == m_goalsToWin) m_winPanel.SetActive(true);
-                else if (m_lost) m_losePanel.SetActive(true);
-                m_playingGame = false;
-            }
+            m_time += Time.deltaTime;
+            GTime.text = "" + GameTime.ToString();
         }
         else
         {
+            if (m_goals == m_goalsToWin) m_winPanel.SetActive(true);
+            else if (m_lost) m_losePanel.SetActive(true);
+
+
             if (!m_inTransition)
             {
                 StartCoroutine("ToEndGameScreen");
             }
-            else
-            {
-
-            }
         }
-
-        
     }
 
     void SetupHiScores()
     {
-        m_hiScore1 = PlayerPrefs.GetInt("hiScore1", 30);
-        m_hiScore2 = PlayerPrefs.GetInt("hiScore2", 25);
-        m_hiScore3 = PlayerPrefs.GetInt("hiScore3", 20);
-        m_hiScore4 = PlayerPrefs.GetInt("hiScore4", 15);
-        m_hiScore5 = PlayerPrefs.GetInt("hiScore5", 10);
+        m_hiScore1 = PlayerPrefs.GetInt("hiScore1", 25);
+        m_hiScore2 = PlayerPrefs.GetInt("hiScore2", 20);
+        m_hiScore3 = PlayerPrefs.GetInt("hiScore3", 15);
+        m_hiScore4 = PlayerPrefs.GetInt("hiScore4", 10);
+        m_hiScore5 = PlayerPrefs.GetInt("hiScore5", 5);
         m_player1Name = PlayerPrefs.GetString("player1Name", "AAA");
         m_player2Name = PlayerPrefs.GetString("player2Name", "AAA");
         m_player3Name = PlayerPrefs.GetString("player3Name", "AAA");
@@ -180,11 +169,38 @@ public class GameManager : MonoBehaviour
         m_leaderboard.SetActive(true);
     }
 
-    private void ToCreateHiScore()
+    //private void ToCreateHiScore()
+    //{
+    //    SetupLeaderboard();
+    //    m_createHiScore.SetActive(true);
+    //    m_hiScoreList.SetActive(false);
+    //    m_creatingHiScore = true;
+    //}
+
+    private int GetHiScoreIndex()
     {
-        SetupLeaderboard();
-        m_createHiScore.SetActive(true);
-        m_hiScoreList.SetActive(false);
+        float[] hiScores = { m_hiScore5, m_hiScore4, m_hiScore3, m_hiScore2, m_hiScore1 };
+        string[] hiScoreStrings = { "hiScore5", "hiScore4", "hiScore3", "hiScore2", "hiScore1" };
+        int index = hiScores.Length;
+
+        for(int i = 0; i < hiScores.Length; i++)
+        {
+            if(m_score > hiScores[i])
+            {
+                if(i != 0)
+                {
+                    PlayerPrefs.SetInt(hiScoreStrings[i - 1], PlayerPrefs.GetInt(hiScoreStrings[i]));
+                }                
+                PlayerPrefs.SetInt(hiScoreStrings[i], (int)m_score);
+                index--;
+            }
+        }
+
+        if(index == hiScores.Length)
+        {
+            return -1;
+        }
+        return index;
     }
 
     IEnumerator ToLeaderboard()
@@ -192,6 +208,14 @@ public class GameManager : MonoBehaviour
         SetupLeaderboard();
         m_createHiScore.SetActive(false);
         m_hiScoreList.SetActive(true);
+
+        int messageIndex = GetHiScoreIndex();
+
+        if(messageIndex >= 0)
+        {
+            m_hiScoreMessages[messageIndex].SetActive(true);
+        }
+        SetupHiScores();
         yield return new WaitForSeconds(m_transitionTime);
         SceneManager.LoadScene("Start");
     }
@@ -202,13 +226,20 @@ public class GameManager : MonoBehaviour
 		m_inTransition = true;
 		yield return new WaitForSeconds(m_transitionTime);
 
-        if(m_score > m_hiScore5)
-        {
-            ToCreateHiScore();
-        }
-        else
-        {
-            StartCoroutine("ToLeaderboard");
-        }
-	}
+        StartCoroutine("ToLeaderboard");
+    }
+
+    //private void OnGUI()
+    //{
+    //    if (m_creatingHiScore)
+    //    {
+    //        Event currentEvent = Event.current;
+
+    //        if (currentEvent.isKey && currentEvent.keyCode >= KeyCode.A && currentEvent.keyCode <= KeyCode.Z)
+    //        {
+
+    //        }
+    //    }
+        
+    //}
 }
