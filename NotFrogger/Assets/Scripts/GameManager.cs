@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_leaderboard;
     [SerializeField] GameObject m_createHiScore;
     [SerializeField] GameObject m_hiScoreList;
+    [SerializeField] GameObject[] m_hiScoreInitials;
     [SerializeField] Text m_hiScoreSlot1;
     [SerializeField] Text m_hiScoreSlot2;
     [SerializeField] Text m_hiScoreSlot3;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
 	float m_lap = 0.0f;
 	int m_goals = 0;
 	bool m_inTransition = false;
+    bool m_playingGame = true;
     int m_hiScore1;
     int m_hiScore2;
     int m_hiScore3;
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
     string m_player5Name;
     string m_hiScoreTemplate1 = ":          ";
     string m_hiScoreTemplate2 = "          ";
+    int activeInitialIndex = 0;
 
     public static int Score { get { return (int)m_score; } }
 	public static int GameTime { get { return (int)m_time; } }
@@ -69,6 +72,8 @@ public class GameManager : MonoBehaviour
 		m_winPanel.SetActive(false);
 		m_hud.SetActive(true);
         m_leaderboard.SetActive(false);
+        m_createHiScore.SetActive(false);
+        m_hiScoreList.SetActive(false);
 
 		m_lost = false;
 		m_lap = 0.0f;
@@ -87,29 +92,34 @@ public class GameManager : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (!m_lost && m_goalsToWin > 0)
-		{
-			m_time += Time.deltaTime;
-			GTime.text = "" + GameTime.ToString();
-		}
-		else
-		{
-			if (m_goals == m_goalsToWin) m_winPanel.SetActive(true);
-			else if (m_lost) m_losePanel.SetActive(true);
-
-            if (m_score > m_hiScore5)
+        if (m_playingGame)
+        {
+            if (!m_lost && m_goalsToWin > 0)
             {
-
+                m_time += Time.deltaTime;
+                GTime.text = "" + GameTime.ToString();
             }
             else
             {
-                if (!m_inTransitionStart)
-                {
-                    StartCoroutine("ToStart");
-                }
-            }			
-		}
-	}
+                if (m_goals == m_goalsToWin) m_winPanel.SetActive(true);
+                else if (m_lost) m_losePanel.SetActive(true);
+                m_playingGame = false;
+            }
+        }
+        else
+        {
+            if (!m_inTransition)
+            {
+                StartCoroutine("ToEndGameScreen");
+            }
+            else
+            {
+
+            }
+        }
+
+        
+    }
 
     void SetupHiScores()
     {
@@ -162,12 +172,43 @@ public class GameManager : MonoBehaviour
 		m_lost = true;
 	}
 
-	IEnumerator ToStart()
+    private void SetupLeaderboard()
+    {
+        m_losePanel.SetActive(false);
+        m_winPanel.SetActive(false);
+        m_hud.SetActive(false);
+        m_leaderboard.SetActive(true);
+    }
+
+    private void ToCreateHiScore()
+    {
+        SetupLeaderboard();
+        m_createHiScore.SetActive(true);
+        m_hiScoreList.SetActive(false);
+    }
+
+    IEnumerator ToLeaderboard()
+    {
+        SetupLeaderboard();
+        m_createHiScore.SetActive(false);
+        m_hiScoreList.SetActive(true);
+        yield return new WaitForSeconds(m_transitionTime);
+        SceneManager.LoadScene("Start");
+    }
+
+	IEnumerator ToEndGameScreen()
 	{
-		Debug.Log("Back to start");
 		m_hud.SetActive(false);
-		m_inTransitionStart = true;
+		m_inTransition = true;
 		yield return new WaitForSeconds(m_transitionTime);
-		SceneManager.LoadScene("Start");
+
+        if(m_score > m_hiScore5)
+        {
+            ToCreateHiScore();
+        }
+        else
+        {
+            StartCoroutine("ToLeaderboard");
+        }
 	}
 }
